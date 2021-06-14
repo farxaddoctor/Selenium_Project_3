@@ -9,7 +9,7 @@ class ProductPage(BasePage):
     def find_book_price(self):
         return self.browser.find_element(*ProductPageLocators.PRICE_TO_COMPARE).text
 
-    def add_item_to_cart(self):
+    def add_item_to_basket(self):
    
         addButton = self.browser.find_element(*ProductPageLocators.ADD_TO_CART_BUTTON)
         addButton.click()
