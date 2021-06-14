@@ -1,9 +1,9 @@
-from pages.product_page import ProductPage
-from pages.locators import ProductPageLocators
-from pages.locators import LoginPageLocators
-from pages.main_page import MainPage
-from pages.login_page import LoginPage
-from pages.basket_page import CartPage
+from .pages.product_page import ProductPage
+from .pages.locators import ProductPageLocators
+from .pages.locators import LoginPageLocators
+from .pages.main_page import MainPage
+from .pages.login_page import LoginPage
+from .pages.basket_page import CartPage
 import pytest
 
 
