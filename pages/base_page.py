@@ -10,8 +10,7 @@ from .locators import BasePageLocators
 class BasePage(object):
     def __init__(self, browser, url, timeout=4):
         self.browser = browser
-        self.url = url
-        # неявное ожидание
+        self.url = url      
         self.browser.implicitly_wait(timeout)
 
     def open(self):
@@ -50,7 +49,6 @@ class BasePage(object):
         return True
 
     def is_not_element_present(self, how, what, timeout=4):
-        # проверка, что элемент не появляется на странице в течение заданного времени
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:
