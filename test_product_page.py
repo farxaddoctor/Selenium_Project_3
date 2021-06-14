@@ -24,18 +24,12 @@ class TestUserAddToCartFromProductPage(object):
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_cart(self, browser):
-        link = ProductPageLocators.PRODUCT_PAGE_PROMO
-
-        # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
-        page = ProductPage(browser, link)
-
-        # открываем нужную страницу
+        link = ProductPageLocators.PRODUCT_PAGE_PROMO     
+        page = ProductPage(browser, link)      
         page.open()
 
         bookToCompare = page.find_book_name()
         priceToCompare = page.find_book_price()
-
-        # добавляем товар в корзину
         page.add_item_to_cart()
 
         page.solve_quiz_and_get_code()
@@ -43,11 +37,7 @@ class TestUserAddToCartFromProductPage(object):
 
     def test_user_cant_see_success_message(self, browser):
         link = ProductPageLocators.PRODUCT_PAGE_LINK
-
-        # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
         page = ProductPage(browser, link)
-
-        # открываем нужную страницу
         page.open()
         page.should_not_be_success_message()
 
@@ -55,26 +45,19 @@ class TestUserAddToCartFromProductPage(object):
 @pytest.mark.need_review
 def test_guest_can_add_product_to_cart(browser):
     link = ProductPageLocators.PRODUCT_PAGE_PROMO
-
-    # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
     page = ProductPage(browser, link)
 
-    # открываем нужную страницу
     page.open()
 
     bookToCompare = page.find_book_name()
     priceToCompare = page.find_book_price()
-
-    # добавляем товар в корзину
     page.add_item_to_cart()
 
     page.solve_quiz_and_get_code()
-    # проверяем, что название и цена книги верные
     page.right_book_and_right_price_message(bookToCompare, priceToCompare)
 
 
 def test_guest_should_see_login_link_on_product_page(browser):
-    # проверка, что пользователь "видит" кнопку логина на странице продукта
     link = ProductPageLocators.PRODUCT_PAGE_LINK
     page = ProductPage(browser, link)
     page.open()
@@ -83,7 +66,6 @@ def test_guest_should_see_login_link_on_product_page(browser):
 
 @pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
-    # проверка, что пользователь может перейти на страницу логина со страницы продукта
     link = ProductPageLocators.PRODUCT_PAGE_LINK
     page = MainPage(browser, link)
     page.open()
