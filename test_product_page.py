@@ -3,7 +3,7 @@ from .pages.locators import ProductPageLocators
 from .pages.locators import LoginPageLocators
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
-from .pages.basket_page import CartPage
+from .pages.basket_page import BasketPage
 import pytest
 
 
@@ -46,13 +46,10 @@ class TestUserAddToCartFromProductPage(object):
 def test_guest_can_add_product_to_cart(browser):
     link = ProductPageLocators.PRODUCT_PAGE_PROMO
     page = ProductPage(browser, link)
-
     page.open()
-
     bookToCompare = page.find_book_name()
     priceToCompare = page.find_book_price()
     page.add_item_to_cart()
-
     page.solve_quiz_and_get_code()
     page.right_book_and_right_price_message(bookToCompare, priceToCompare)
 
@@ -80,5 +77,5 @@ def test_guest_cant_see_product_in_cart_opened_from_product_page(browser):
     page = MainPage(browser, link)
     page.open()
     page.go_to_basket_page()
-    cart_page = CartPage(browser, browser.current_url)
-    cart_page.cart_should_be_empty()
+    baskte_page = BasketPage(browser, browser.current_url)
+    basket_page.cart_should_be_empty()
