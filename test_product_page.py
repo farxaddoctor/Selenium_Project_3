@@ -30,7 +30,7 @@ class TestUserAddToCartFromProductPage(object):
 
         bookToCompare = page.find_book_name()
         priceToCompare = page.find_book_price()
-        page.add_item_to_cart()
+        page.add_item_to_basket()
 
         page.solve_quiz_and_get_code()
         page.right_book_and_right_price_message(bookToCompare, priceToCompare)
