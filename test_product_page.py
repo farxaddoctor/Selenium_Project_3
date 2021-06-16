@@ -43,13 +43,13 @@ class TestUserAddToCartFromProductPage(object):
 
 
 @pytest.mark.need_review
-def test_guest_can_add_product_to_cart(browser):
+def test_guest_can_add_product_to_basket(browser):
     link = ProductPageLocators.PRODUCT_PAGE_PROMO
     page = ProductPage(browser, link)
     page.open()
     bookToCompare = page.find_book_name()
     priceToCompare = page.find_book_price()
-    page.add_item_to_cart()
+    page.add_item_to_basket()
     page.solve_quiz_and_get_code()
     page.right_book_and_right_price_message(bookToCompare, priceToCompare)
 
@@ -72,7 +72,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
 
 
 @pytest.mark.need_review
-def test_guest_cant_see_product_in_cart_opened_from_product_page(browser):
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = ProductPageLocators.PRODUCT_PAGE_LINK
     page = MainPage(browser, link)
     page.open()
