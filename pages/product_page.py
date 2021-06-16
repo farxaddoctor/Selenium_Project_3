@@ -11,7 +11,7 @@ class ProductPage(BasePage):
 
     def add_item_to_basket(self):
    
-        addButton = self.browser.find_element(*ProductPageLocators.ADD_TO_CART_BUTTON)
+        addButton = self.browser.find_element(*ProductPageLocators.ADD_TO_Basket_BUTTON)
         addButton.click()
 
     def right_book_and_right_price_message(self, bookToCompare, priceToCompare):
