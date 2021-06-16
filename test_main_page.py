@@ -3,7 +3,7 @@ from pages.locators import MainPageLocators
 from pages.locators import ProductPageLocators
 from pages.locators import BasketPageLocators
 from pages.login_page import LoginPage
-from pages.basket_page import CartPage
+from pages.basket_page import BasketPage
 from pages.product_page import ProductPage
 import pytest
 
